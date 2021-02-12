@@ -2,3 +2,4 @@ eureka:
   client:
     registerWithEureka: false
     fetchRegistry: false
+myvalue: Palash
