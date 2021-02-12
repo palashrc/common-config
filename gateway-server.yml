@@ -1,0 +1,4 @@
+eureka:
+  client:
+    registerWithEureka: false  #A MicroService is to be registered in Eureka server or not
+    fetchRegistry: true        #Retrieves the registered other MicroServices details from the Eureka server or not.
