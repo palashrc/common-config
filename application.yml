@@ -1,0 +1,115 @@
+---
+
+spring:
+  profiles: DEV                         #Spring profile name which is defined here.
+  boot:
+    admin:
+      url: http://localhost:9001        #URL of Sadmin-server used by its client MicroServices.
+      username: adminp                  #Username of admin-server used by its client MicroServices.
+      password: adminp                  #Password of admin-server used by its client MicroServices.
+  sleuth:                               #Sleuth Configuration for other MicroServices.
+    enabled: true
+    scheduled:
+      enabled: false
+    async:
+      enabled: false
+    annotation:
+      enabled: false
+    sampler:
+      percentage: 1.0
+
+security:
+  user:
+    name: adminp                        #Username of admin-server.
+    password: adminp                    #Password of admin-server.
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9011/eureka,http://localhost:9012/eureka    #URL of Eureka Server used by all registered MicroServices.
+  server:
+    maxThreadsForPeerReplication: 100
+
+zuul:
+  routes:
+    client-app:  #Any request comes to Zuul with path /conductapp/ will be forwarded to the MicroService registered in Eureka with serviceId 'conductor-service'.
+      path: '/conductapp/**'
+      serviceId: conductor-service
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 65000
+
+ribbon:
+  ReadTimeout: 30000
+  ConnectTimeout: 30000     
+
+sun:
+  net:
+    client:
+      defaultConnectTimeout: 30000
+      defaultReadTimeout: 30000
+
+management:                             #Actuator endpoinds will be shown or not
+  security:
+    enabled: false
+
+---
+
+spring:
+  profiles: CLOUD
+  boot:
+    admin:
+      url: http://162.144.220.210:9001
+      username: adminc
+      password: adminc
+  sleuth:
+    enabled: true
+    scheduled:
+      enabled: false
+    async:
+      enabled: false
+    annotation:
+      enabled: false
+    sampler:
+      percentage: 1.0
+
+security:
+  user:
+    name: adminc
+    password: adminc	  
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://162.144.220.210:9011/eureka
+      
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 65000
+
+ribbon:
+  ReadTimeout: 30000
+  ConnectTimeout: 30000     
+
+sun:
+  net:
+    client:
+      defaultConnectTimeout: 30000
+      defaultReadTimeout: 30000
+
+management:
+  security:
+    enabled: false
+
+---
