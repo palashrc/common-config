@@ -1,7 +1,7 @@
 ---
 
 spring:
-  profiles: DEV                         #Spring profile name which is defined here.
+  profiles: LOCAL                       #Spring profile name which is defined here.
   boot:
     admin:
       url: http://localhost:9001        #URL of admin-server used by its client MicroServices.
@@ -62,10 +62,10 @@ management:                             #Actuator endpoinds will be shown or not
 ---
 
 spring:
-  profiles: CLOUD
+  profiles: DEV
   boot:
     admin:
-      url: http://162.144.220.210:9001
+      url: http://sc-poc-alb-993984210.us-east-1.elb.amazonaws.com:9001
       username: adminc
       password: adminc
   sleuth:
@@ -87,7 +87,7 @@ security:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://162.144.220.210:9011/eureka
+      defaultZone: http://sc-poc-alb-993984210.us-east-1.elb.amazonaws.com:9011/eureka
   server:
     maxThreadsForPeerReplication: 100
       
