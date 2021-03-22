@@ -4,7 +4,7 @@ spring:
   profiles: DEV                         #Spring profile name which is defined here.
   boot:
     admin:
-      url: http://localhost:9001        #URL of Sadmin-server used by its client MicroServices.
+      url: http://localhost:9001        #URL of admin-server used by its client MicroServices.
       username: adminp                  #Username of admin-server used by its client MicroServices.
       password: adminp                  #Password of admin-server used by its client MicroServices.
   sleuth:                               #Sleuth Configuration for other MicroServices.
@@ -88,6 +88,8 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://162.144.220.210:9011/eureka
+  server:
+    maxThreadsForPeerReplication: 100
       
 hystrix:
   command:
