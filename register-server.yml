@@ -1,5 +1,7 @@
 eureka:
   client:
-    registerWithEureka: false
-    fetchRegistry: false
+    registerWithEureka: true
+    fetchRegistry: true
+    healthCheck:
+        enabled: true     
 myvalue: Palash
