@@ -29,7 +29,7 @@ eureka:
       defaultZone: http://peer1:9011/eureka/,http://peer2:9012/eureka/    #URL of Eureka Server used by all registered MicroServices.
       shouldFetchRegistry: true
       ValidateCertificates: false
-      registryFetchIntervalSeconds: 10
+      registryFetchIntervalSeconds: 40
   server:
     maxThreadsForPeerReplication: 100
 
