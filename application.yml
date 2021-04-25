@@ -91,6 +91,8 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://sc-poc-alb-993984210.us-east-1.elb.amazonaws.com:9011/eureka
+      shouldFetchRegistry: true
+      ValidateCertificates: false
   server:
     maxThreadsForPeerReplication: 100
       
