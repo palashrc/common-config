@@ -95,7 +95,13 @@ eureka:
       ValidateCertificates: false
   server:
     maxThreadsForPeerReplication: 100
-      
+
+zuul:
+  routes:
+    client-app:
+      path: '/conductapp/**'
+      serviceId: conductor-service      
+
 hystrix:
   command:
     default:
