@@ -68,7 +68,7 @@ spring:
   profiles: DEV
   boot:
     admin:
-      url: http://sc-poc-alb-993984210.us-east-1.elb.amazonaws.com:9001
+      url: http://ec2-3-82-76-142.compute-1.amazonaws.com:9001
       username: adminc
       password: adminc
   sleuth:
@@ -90,7 +90,7 @@ security:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://sc-poc-alb-993984210.us-east-1.elb.amazonaws.com:9011/eureka
+      defaultZone: http://ec2-34-235-8-73.compute-1.amazonaws.com:9011/eureka,http://ec2-54-227-184-170.compute-1.amazonaws.com:9012/eureka
       shouldFetchRegistry: true
       ValidateCertificates: false
   server:
