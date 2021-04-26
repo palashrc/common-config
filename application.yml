@@ -90,7 +90,7 @@ security:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://ec2-34-235-8-73.compute-1.amazonaws.com:9011/eureka,http://ec2-54-227-184-170.compute-1.amazonaws.com:9012/eureka
+      defaultZone: http://ec2-34-235-8-73.compute-1.amazonaws.com:9011/eureka/,http://ec2-54-227-184-170.compute-1.amazonaws.com:9012/eureka/
       shouldFetchRegistry: true
       ValidateCertificates: false
   server:
